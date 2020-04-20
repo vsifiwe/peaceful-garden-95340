@@ -5,8 +5,10 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "babel src/app.js --out-dir build",
-        "dev": "nodemon src/app.js --exec babel-node --"
+        "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
+        "build1": "babel src/app.js --out-dir build",
+        "dev": "nodemon src/app.js --exec babel-node --",
+        "start": "npm run build && node dist/src/app.js"
     },
     "repository": {
         "type": "git",
@@ -23,11 +25,13 @@
     "homepage": "https://github.com/AsifiweM/peaceful-garden-95340#readme",
     "dependencies": {
         "@babel/core": "^7.9.0",
+        "babel-polyfill": "^6.26.0",
         "body-parser": "^1.19.0",
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
         "nodemon": "^2.0.3",
         "pg": "^8.0.2",
+        "rimraf": "^3.0.2",
         "uuid": "^7.0.3"
     },
     "devDependencies": {

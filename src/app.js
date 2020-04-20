@@ -1,5 +1,6 @@
+import 'babel-polyfill';
 import express from 'express';
-import routes from './routes/routes';
+import routes from '../src/routes/routes';
 import {} from 'dotenv/config';
 
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
