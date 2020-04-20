@@ -7,6 +7,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
         "build1": "babel src/app.js --out-dir build",
+        "build2": "babel src --out-dir build",
         "dev": "nodemon src/app.js --exec babel-node --",
         "start": "npm run build && node dist/src/app.js"
     },
@@ -32,10 +33,10 @@
         "nodemon": "^2.0.3",
         "pg": "^8.0.2",
         "rimraf": "^3.0.2",
-        "uuid": "^7.0.3"
+        "uuid": "^7.0.3",
+        "babel-cli": "^6.26.0"
     },
     "devDependencies": {
-        "babel-cli": "^6.26.0",
         "babel-preset-env": "^1.7.0",
         "babel-watch": "^7.0.0"
     }
