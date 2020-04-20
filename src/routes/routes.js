@@ -11,10 +11,15 @@ app.get('/', (req, res) => {
 });
 
 app.get('/categories', CategoriesController.getAllCategories);
-app.delete('/deletecategory/{id}', CategoriesController.DeleteCategory);
+app.delete('/deletecategories/:id', CategoriesController.DeleteCategory);
 app.post('/createcategory', CategoriesController.CreateCategory);
 app.get('/promotions', PromotionsController.getAllPromotions);
-app.delete('/deletepromotion/{id}', PromotionsController.DeletePromotion);
+app.delete('/deletepromotion/:id', PromotionsController.DeletePromotion);
 app.post('/createpromotion', PromotionsController.CreatePromotion);
+app.delete('*', (req, res) => {
+    return res.status(404).send({
+        message: 'This Directory does not exist',
+    });
+});
 
 export default app;

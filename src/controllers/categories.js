@@ -1,20 +1,42 @@
+import connect from '../helpers/connect';
+
 class CategoriesController {
     static async getAllCategories(req, res) {
-        return res.status(200).send({
-            message: 'Get all categories endpoint working',
-        });
+        const query = 'select * from categories';
+        try {
+            const { rows } = await connect.query(query);
+            return res.status(200).send(rows);
+        } catch (error) {
+            console.log(error);
+            return res.status(400).send(error);
+        }
     }
 
     static async CreateCategory(req, res) {
-        return res.status(200).send({
-            message: 'Create Category endpoint working',
-        });
+        let query = 'insert into categories (name, logo_link) values ($1 , $2)';
+        let name = req.body.name;
+        let logoLink = req.body.logoLink;
+        let values = [name, logoLink];
+
+        try {
+            const { rows, rowCount } = await connect.query(query, values);
+            return res.status(200).send({ rows, rowCount });
+        } catch (error) {
+            return res.status(400).send(error);
+        }
     }
 
     static async DeleteCategory(req, res) {
-        return res.status(200).send({
-            message: 'Delete Category endpoint working',
-        });
+        let query = 'delete from categories where id=$1';
+        let data = req.params.id;
+        let values = [data];
+
+        try {
+            const { rows, rowCount } = await connect.query(query, values);
+            return res.status(200).send({ rows, rowCount });
+        } catch (error) {
+            return res.status(400).send(error);
+        }
     }
 }
 
