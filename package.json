@@ -6,10 +6,10 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
-        "build1": "babel src/app.js --out-dir build",
-        "build2": "babel src --out-dir build",
+        "build2": "rimraf build/ && babel ./ --out-dir build/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
+        "build3": "babel src/app.js --exec babel-node --",
         "dev": "nodemon src/app.js --exec babel-node --",
-        "start": "npm run build && node dist/src/app.js"
+        "start": "npm run build2 && node build/src/app.js"
     },
     "repository": {
         "type": "git",
