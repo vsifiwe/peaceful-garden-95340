@@ -8,8 +8,8 @@
         "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
         "build2": "rimraf build/ && babel ./ --out-dir build/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
         "build3": "babel src/app.js --exec babel-node --",
-        "dev": "nodemon src/app.js --exec babel-node --",
-        "start": "npm run build2 && node build/src/app.js"
+        "start": "nodemon src/app.js --exec babel-node --",
+        "start1": "npm run build2 && node build/src/app.js"
     },
     "repository": {
         "type": "git",
@@ -27,16 +27,17 @@
     "dependencies": {
         "@babel/core": "^7.9.0",
         "babel-polyfill": "^6.26.0",
-        "body-parser": "^1.19.0",
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
         "nodemon": "^2.0.3",
         "pg": "^8.0.2",
         "rimraf": "^3.0.2",
-        "uuid": "^7.0.3",
         "babel-cli": "^6.26.0",
         "babel-preset-env": "^1.7.0",
         "babel-watch": "^7.0.0"
     },
-    "devDependencies": {}
+    "devDependencies": {
+        "body-parser": "^1.19.0",
+        "uuid": "^7.0.3"
+    }
 }
