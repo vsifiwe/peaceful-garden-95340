@@ -2,7 +2,7 @@
     "name": "peaceful-garden-95340",
     "version": "1.0.0",
     "description": "Custom backend",
-    "main": "app.js",
+    "main": "build/src/app.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "rimraf build/ && babel ./ --out-dir build/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
